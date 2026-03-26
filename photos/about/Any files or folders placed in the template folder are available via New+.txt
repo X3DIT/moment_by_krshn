@@ -1,1 +1,62 @@
-Learn more about New+ by visiting https://aka.ms/PowerToysOverview_NewPlus
+
+
+mkdir -p photos/hero photos/kerala photos/dance photos/aranmula photos/portrait photos/design photos/about
+
+# ─── HERO ───────────────────────────────────
+cp "picture/yk_photo_85.png"           photos/hero/h1.jpg
+cp "picture/IMG_6566.PNG"              photos/hero/h2.jpg
+cp "picture/vallam (1).jpg"            photos/hero/h3.jpg
+
+# ─── KERALA TRADITIONS ──────────────────────
+cp "picture/yk_photo_86.png"           photos/kerala/k1.jpg
+cp "picture/yk_photo_87.png"           photos/kerala/k2.jpg
+cp "picture/yk_photo_88.png"           photos/kerala/k3.jpg
+cp "picture/yk_photo_89.png"           photos/kerala/k4.jpg
+cp "picture/yk_photo_90.png"           photos/kerala/k5.jpg
+cp "picture/yk_photo_92.png"           photos/kerala/k6.jpg
+cp "picture/yk_photo_93.png"           photos/kerala/k7.jpg
+cp "picture/yk_photo_94.png"           photos/kerala/k8.jpg
+cp "picture/yk_photo_96.png"           photos/kerala/k9.jpg
+cp "picture/yk_photo_97.png"           photos/kerala/k10.jpg
+
+# ─── CLASSICAL DANCE ────────────────────────
+cp "picture/FV_Krshn_01.jpg"           photos/dance/d1.jpg
+cp "picture/FV_Krshn_02.jpg"           photos/dance/d2.jpg
+cp "picture/FV_Krshn_03.jpg"           photos/dance/d3.jpg
+cp "picture/FV_Krshn_04.jpg"           photos/dance/d4.jpg
+cp "picture/FV_Krshn_05.jpg"           photos/dance/d5.jpg
+cp "picture/FV_Krshn_06.jpg"           photos/dance/d6.jpg
+cp "picture/FV_Krshn_07.jpg"           photos/dance/d7.jpg
+cp "picture/FV_Krshn_08.jpg"           photos/dance/d8.jpg
+
+# ─── ARANMULA ───────────────────────────────
+cp "picture/vallam (2).jpg"            photos/aranmula/a1.jpg
+cp "picture/vallam (3).jpg"            photos/aranmula/a2.jpg
+cp "picture/vallam (4).jpg"            photos/aranmula/a3.jpg
+cp "picture/vallam (5).jpg"            photos/aranmula/a4.jpg
+cp "picture/vallam (6).jpg"            photos/aranmula/a5.jpg
+cp "picture/vallam (7).jpg"            photos/aranmula/a6.jpg
+
+# ─── PORTRAIT ───────────────────────────────
+cp "picture/lechu_photo (1).jpg"       photos/portrait/p1.jpg
+cp "picture/lechu_photo (2).jpg"       photos/portrait/p2.jpg
+cp "picture/lechu_photo (3).jpg"       photos/portrait/p3.jpg
+cp "picture/lechu_photo (4).jpg"       photos/portrait/p4.jpg
+cp "picture/lechu_photo (5).jpg"       photos/portrait/p5.jpg
+cp "picture/yk_krishn_photo_57.png"    photos/portrait/p6.jpg
+cp "picture/yk_photo_1.png"            photos/portrait/p7.jpg
+cp "picture/yk_photo_2.png"            photos/portrait/p8.jpg
+
+# ─── GRAPHIC DESIGN ─────────────────────────
+cp "picture/IMG_6041.PNG"              photos/design/g1.jpg
+cp "picture/IMG_6159.PNG"              photos/design/g2.jpg
+cp "picture/IMG_6199.PNG"              photos/design/g3.jpg
+cp "picture/IMG_6597.PNG"              photos/design/g4.jpg
+cp "picture/IMG_6762.PNG"              photos/design/g5.jpg
+cp "picture/Untitled-1.png"            photos/design/g6.jpg
+
+# ─── ABOUT ──────────────────────────────────
+cp "picture/yk_photo_5.png"            photos/about/me.jpg
+cp "picture/yk_photo_9.png"            photos/about/behind.jpg
+
+echo "✅ All files organised into photos/ — open index.html in browser to check!"
