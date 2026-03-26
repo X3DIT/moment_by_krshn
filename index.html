@@ -1186,6 +1186,156 @@
         }
 
         /* ══════════════════════════════════════════
+           SHOWCASE REDESIGN — Dark & Premium
+        ══════════════════════════════════════════ */
+        .sec-showcase {
+            background: #0C0C07;
+            padding: 8rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .showcase-title-row {
+            padding: 0 1.4rem 4rem;
+        }
+
+        @media(min-width:768px) {
+            .showcase-title-row {
+                padding: 0 4rem 5rem;
+            }
+        }
+
+        .h-scroll.showcase-reel {
+            display: flex;
+            width: max-content;
+            /* Critical: allow row to extend for animation */
+            gap: 24px;
+            padding: 2rem 1.4rem 4rem;
+            cursor: default;
+            scroll-behavior: auto;
+            will-change: transform;
+        }
+
+        .showcase-nav-btns {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .s-btn {
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            border: 1px solid rgba(250, 250, 248, 0.15);
+            background: rgba(25, 24, 18, 0.4);
+            backdrop-filter: blur(8px);
+            color: var(--w);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .4s var(--ease);
+            font-size: 1.2rem;
+            pointer-events: auto !important;
+            z-index: 50;
+        }
+
+        .s-btn:hover {
+            background: var(--saf);
+            border-color: var(--saf);
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 98, 26, 0.3);
+        }
+
+        @media(max-width:767px) {
+            .showcase-nav-btns {
+                display: none;
+                /* Hide on mobile to save space */
+            }
+        }
+
+
+
+        .d-card.premium {
+            flex: 0 0 260px;
+            height: 380px;
+            background: #18170F;
+            border-radius: var(--rl);
+            border: 1px solid rgba(250, 250, 248, 0.08);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform .6s var(--ease), border-color .4s, box-shadow .6s;
+            perspective: 1000px;
+        }
+
+        @media(min-width:768px) {
+            .d-card.premium {
+                flex: 0 0 340px;
+                height: 500px;
+            }
+        }
+
+        .d-card.premium .d-card-img {
+            height: 100%;
+            border-radius: inherit;
+        }
+
+        .d-card.premium .d-card-info {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(12, 12, 7, 0.95) 0%, rgba(12, 12, 7, 0.4) 40%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity .5s var(--ease), transform .5s var(--ease);
+            transform: translateY(15px);
+            pointer-events: none;
+        }
+
+        .d-card.premium:hover {
+            transform: scale(1.04) translateY(-10px) rotateY(5deg);
+            border-color: var(--saf);
+            box-shadow: 0 30px 70px rgba(232, 98, 26, 0.15), 0 0 50px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+
+        .d-card.premium:hover .d-card-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .d-c-cat.light {
+            color: var(--saf2);
+            font-size: .6rem;
+            letter-spacing: .2em;
+        }
+
+        .d-c-name.light {
+            color: var(--w);
+            font-size: 1.5rem;
+            margin-top: .5rem;
+        }
+
+        .showcase-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(232, 98, 26, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @media(max-width:767px) {
+            .h-scroll.showcase-reel {
+                animation-duration: 40s;
+            }
+        }
+
+        /* ══════════════════════════════════════════
    PHILOSOPHY / STATS
 ══════════════════════════════════════════ */
         .phil-wrap {
@@ -2095,7 +2245,7 @@
                 <div class="b-info">
                     <span class="b-num">05 — Design</span>
                     <div class="b-name">Graphic<br>Design</div>
-                    <span class="b-tag">12 works</span>
+                    <span class="b-tag">11 works</span>
                 </div>
             </div>
 
@@ -2120,7 +2270,6 @@
             <button class="cat-pill" data-filter="dance">Classical Dance</button>
             <button class="cat-pill" data-filter="aranmula">Aranmula</button>
             <button class="cat-pill" data-filter="portrait">Portrait</button>
-            <button class="cat-pill" data-filter="design">Graphic Design</button>
         </div>
 
         <!-- MASONRY GALLERY — add/remove .g-item blocks freely -->
@@ -2363,6 +2512,7 @@
             </div>
 
             <!-- PORTRAIT 6 -->
+            <!-- PORTRAIT 6 -->
             <div class="g-item" data-cat="portrait" data-src="photos/portrait/p6.png" data-title="Dancer — backstage"
                 tabindex="0">
                 <img src="photos/portrait/p6.png" alt="Dancer backstage" loading="lazy">
@@ -2381,69 +2531,6 @@
             <div class="g-item" data-cat="portrait" data-src="photos/portrait/p8.png" data-title="Study V" tabindex="0">
                 <img src="photos/portrait/p8.png" alt="Portrait V" loading="lazy">
                 <div class="g-glass"><span class="g-cat">Portrait</span><span class="g-name">Study V</span></div>
-            </div>
-
-
-            <!-- ╔══ GRAPHIC DESIGN ══════════════════════╗ -->
-
-            <div class="g-item" data-cat="design" data-src="photos/design/3x3 basket ball.png" data-title="3x3 Basketball" tabindex="0">
-                <img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">3x3 Basketball</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/Aleena.jpg" data-title="Aleena Poster" tabindex="0">
-                <img src="photos/design/Aleena.jpg" alt="Aleena Poster" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Aleena Poster</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/LDF.jpg" data-title="LDF Campaign" tabindex="0">
-                <img src="photos/design/LDF.jpg" alt="LDF Campaign" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">LDF Campaign</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/cyber.png" data-title="Cyber Identity" tabindex="0">
-                <img src="photos/design/cyber.png" alt="Cyber Identity" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Cyber Identity</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/fLYER.jpg" data-title="Event Flyer" tabindex="0">
-                <img src="photos/design/fLYER.jpg" alt="Event Flyer" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Event Flyer</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/gopro poster.png" data-title="GoPro Poster" tabindex="0">
-                <img src="photos/design/gopro poster.png" alt="GoPro Poster" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">GoPro Poster</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/iphone.png" data-title="iPhone Mockup" tabindex="0">
-                <img src="photos/design/iphone.png" alt="iPhone Mockup" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">iPhone Mockup</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/jersey.jpg" data-title="Jersey Design" tabindex="0">
-                <img src="photos/design/jersey.jpg" alt="Jersey Design" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Jersey Design</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/nike travis.jpg" data-title="Nike Travis Poster" tabindex="0">
-                <img src="photos/design/nike travis.jpg" alt="Nike Travis Poster" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Nike Travis Poster</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/onam.webp" data-title="Onam Poster" tabindex="0">
-                <img src="photos/design/onam.webp" alt="Onam Poster" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Onam Poster</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/teacher.png" data-title="Teacher's Day Poster" tabindex="0">
-                <img src="photos/design/teacher.png" alt="Teacher's Day Poster" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Teacher's Day Poster</span></div>
-            </div>
-
-            <div class="g-item" data-cat="design" data-src="photos/design/workshop.png" data-title="Workshop Series" tabindex="0">
-                <img src="photos/design/workshop.png" alt="Workshop Series" loading="lazy">
-                <div class="g-glass"><span class="g-cat">Design</span><span class="g-name">Workshop Series</span></div>
             </div>
 
 
@@ -2520,141 +2607,230 @@
 
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════
-     DESIGN / POSTERS — draggable horizontal scroll
-═══════════════════════════════════════════ -->
-    <section class="sec" id="design">
-        <div class="sec-row rv">
+    <section class="sec-showcase" id="design">
+        <div class="showcase-glow"></div>
+        <div class="showcase-title-row rv" style="display:flex; justify-content:space-between; align-items:flex-end;">
             <div>
-                <p class="eyebrow">Graphic Design</p>
-                <h2 class="s-title">Posters &amp; <em>visual work</em></h2>
+                <p class="eyebrow" style="color:var(--saf2)">Design Showcase</p>
+                <h2 class="s-title light">Posters &amp; <em>Editorial work</em></h2>
             </div>
-            <span class="lnk" style="cursor:default;font-size:.6rem;color:var(--i3)">← drag →</span>
+            <div class="showcase-nav-btns" style="position:relative; z-index:100;">
+                <button class="s-btn" id="s-prev" aria-label="Previous Work" title="Previous">←</button>
+                <button class="s-btn" id="s-next" aria-label="Next Work" title="Next">→</button>
+            </div>
         </div>
 
-        <div class="h-scroll rv d1" id="design-scroll">
+        <!-- We duplicate items for a seamless loop animation -->
+        <div class="h-scroll showcase-reel rv d1" id="design-scroll">
 
-            <!-- DESIGN 1 -->
-            <div class="d-card" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design"
+            <!-- DESIGN 1: 3x3 basketball -->
+            <div class="d-card premium" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design"
                 data-title="3x3 Basketball">
-                <div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball" loading="lazy">
-                </div>
+                <div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Poster</p>
-                    <p class="d-c-name">3x3 Basketball</p>
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">3x3 Basketball</p>
                 </div>
             </div>
 
-            <!-- DESIGN 2 -->
-            <div class="d-card" data-src="photos/design/Aleena.jpg" data-cat="Graphic Design" data-title="Aleena Poster">
-                <div class="d-card-img"><img src="photos/design/Aleena.jpg" alt="Aleena Poster" loading="lazy"></div>
+            <!-- DESIGN 2: LDF -->
+            <div class="d-card premium" data-src="photos/design/LDF.jpg" data-cat="Graphic Design"
+                data-title="LDF Campaign">
+                <div class="d-card-img"><img src="photos/design/LDF.jpg" alt="LDF Campaign"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Poster</p>
-                    <p class="d-c-name">Aleena Poster</p>
+                    <p class="d-c-cat light">Campaign</p>
+                    <p class="d-c-name light">LDF Politics</p>
                 </div>
             </div>
 
-            <!-- DESIGN 3 -->
-            <div class="d-card" data-src="photos/design/LDF.jpg" data-cat="Graphic Design" data-title="LDF Campaign">
-                <div class="d-card-img"><img src="photos/design/LDF.jpg" alt="LDF Campaign" loading="lazy"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat">Campaign</p>
-                    <p class="d-c-name">LDF Campaign</p>
-                </div>
-            </div>
-
-            <!-- DESIGN 4 -->
-            <div class="d-card" data-src="photos/design/cyber.png" data-cat="Graphic Design"
+            <!-- DESIGN 3: Cyber -->
+            <div class="d-card premium" data-src="photos/design/cyber.png" data-cat="Graphic Design"
                 data-title="Cyber Identity">
-                <div class="d-card-img"><img src="photos/design/cyber.png" alt="Cyber Identity" loading="lazy"></div>
+                <div class="d-card-img"><img src="photos/design/cyber.png" alt="Cyber Identity"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Identity</p>
-                    <p class="d-c-name">Cyber Identity</p>
+                    <p class="d-c-cat light">Identity</p>
+                    <p class="d-c-name light">Cyber State</p>
                 </div>
             </div>
 
-            <!-- DESIGN 5 -->
-            <div class="d-card" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design" data-title="Event Flyer">
-                <div class="d-card-img"><img src="photos/design/fLYER.jpg" alt="Event Flyer" loading="lazy"></div>
+            <!-- DESIGN 4: GoPro -->
+            <div class="d-card premium" data-src="photos/design/gopro poster.png" data-cat="Graphic Design"
+                data-title="GoPro Poster">
+                <div class="d-card-img"><img src="photos/design/gopro poster.png" alt="GoPro Poster"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Event</p>
-                    <p class="d-c-name">Event Flyer</p>
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">GoPro Adventure</p>
                 </div>
             </div>
 
-            <!-- DESIGN 6 -->
-            <div class="d-card" data-src="photos/design/gopro poster.png" data-cat="Graphic Design" data-title="GoPro Poster">
-                <div class="d-card-img"><img src="photos/design/gopro poster.png" alt="GoPro Poster" loading="lazy"></div>
+            <!-- DESIGN 5: iPhone -->
+            <div class="d-card premium" data-src="photos/design/iphone.png" data-cat="Graphic Design"
+                data-title="iPhone Mockup">
+                <div class="d-card-img"><img src="photos/design/iphone.png" alt="iPhone Mockup"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Poster</p>
-                    <p class="d-c-name">GoPro Poster</p>
+                    <p class="d-c-cat light">Mockup</p>
+                    <p class="d-c-name light">iPhone Series</p>
                 </div>
             </div>
 
-            <!-- DESIGN 7 -->
-            <div class="d-card" data-src="photos/design/iphone.png" data-cat="Graphic Design" data-title="iPhone Mockup">
-                <div class="d-card-img"><img src="photos/design/iphone.png" alt="iPhone Mockup" loading="lazy"></div>
+            <!-- DESIGN 6: Jersey -->
+            <div class="d-card premium" data-src="photos/design/jersey.jpg" data-cat="Graphic Design"
+                data-title="Jersey Design">
+                <div class="d-card-img"><img src="photos/design/jersey.jpg" alt="Jersey Design"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Mockup</p>
-                    <p class="d-c-name">iPhone Mockup</p>
+                    <p class="d-c-cat light">Product</p>
+                    <p class="d-c-name light">Kerala Jersey</p>
                 </div>
             </div>
 
-            <!-- DESIGN 8 -->
-            <div class="d-card" data-src="photos/design/jersey.jpg" data-cat="Graphic Design" data-title="Jersey Design">
-                <div class="d-card-img"><img src="photos/design/jersey.jpg" alt="Jersey Design" loading="lazy"></div>
+            <!-- DESIGN 7: Nike -->
+            <div class="d-card premium" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design"
+                data-title="Nike Travis">
+                <div class="d-card-img"><img src="photos/design/nike travis.jpg" alt="Nike Travis"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Product</p>
-                    <p class="d-c-name">Jersey Design</p>
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">Nike Travis</p>
                 </div>
             </div>
 
-            <!-- DESIGN 9 -->
-            <div class="d-card" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design" data-title="Nike Travis">
-                <div class="d-card-img"><img src="photos/design/nike travis.jpg" alt="Nike Travis" loading="lazy"></div>
+            <!-- DESIGN 8: Onam -->
+            <div class="d-card premium" data-src="photos/design/onam.webp" data-cat="Graphic Design"
+                data-title="Onam Poster">
+                <div class="d-card-img"><img src="photos/design/onam.webp" alt="Onam Poster"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Poster</p>
-                    <p class="d-c-name">Nike Travis</p>
+                    <p class="d-c-cat light">Festival</p>
+                    <p class="d-c-name light">Onam Poster</p>
                 </div>
             </div>
 
-            <!-- DESIGN 10 -->
-            <div class="d-card" data-src="photos/design/onam.webp" data-cat="Graphic Design" data-title="Onam Poster">
-                <div class="d-card-img"><img src="photos/design/onam.webp" alt="Onam Poster" loading="lazy"></div>
+            <!-- DESIGN 9: Teacher -->
+            <div class="d-card premium" data-src="photos/design/teacher.png" data-cat="Graphic Design"
+                data-title="Teacher's Day">
+                <div class="d-card-img"><img src="photos/design/teacher.png" alt="Teacher's Day"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Festival</p>
-                    <p class="d-c-name">Onam Poster</p>
+                    <p class="d-c-cat light">Social</p>
+                    <p class="d-c-name light">Teacher's Day</p>
                 </div>
             </div>
 
-            <!-- DESIGN 11 -->
-            <div class="d-card" data-src="photos/design/teacher.png" data-cat="Graphic Design" data-title="Teacher's Day">
-                <div class="d-card-img"><img src="photos/design/teacher.png" alt="Teacher's Day" loading="lazy"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat">Social</p>
-                    <p class="d-c-name">Teacher's Day</p>
-                </div>
-            </div>
-
-            <!-- DESIGN 12 -->
-            <div class="d-card" data-src="photos/design/workshop.png" data-cat="Graphic Design"
+            <!-- DESIGN 10: Workshop -->
+            <div class="d-card premium" data-src="photos/design/workshop.png" data-cat="Graphic Design"
                 data-title="Workshop Series">
-                <div class="d-card-img"><img src="photos/design/workshop.png" alt="Workshop Series" loading="lazy"></div>
+                <div class="d-card-img"><img src="photos/design/workshop.png" alt="Workshop Series"></div>
                 <div class="d-card-info">
-                    <p class="d-c-cat">Editorial</p>
-                    <p class="d-c-name">Workshop Series</p>
+                    <p class="d-c-cat light">Editorial</p>
+                    <p class="d-c-name light">Workshop Series</p>
+                </div>
+            </div>
+
+            <!-- DESIGN 11: Flyer -->
+            <div class="d-card premium" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design"
+                data-title="Event Flyer">
+                <div class="d-card-img"><img src="photos/design/fLYER.jpg" alt="Event Flyer"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Event</p>
+                    <p class="d-c-name light">Event Flyer</p>
+                </div>
+            </div>
+
+            <!-- DUPLICATES FOR SEAMLESS LOOP -->
+            <div class="d-card premium" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design"
+                data-title="3x3 Basketball">
+                <div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">3x3 Basketball</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/LDF.jpg" data-cat="Graphic Design"
+                data-title="LDF Campaign">
+                <div class="d-card-img"><img src="photos/design/LDF.jpg" alt="LDF Campaign"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Campaign</p>
+                    <p class="d-c-name light">LDF Politics</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/cyber.png" data-cat="Graphic Design"
+                data-title="Cyber Identity">
+                <div class="d-card-img"><img src="photos/design/cyber.png" alt="Cyber Identity"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Identity</p>
+                    <p class="d-c-name light">Cyber State</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/gopro poster.png" data-cat="Graphic Design"
+                data-title="GoPro Poster">
+                <div class="d-card-img"><img src="photos/design/gopro poster.png" alt="GoPro Poster"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">GoPro Adventure</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/iphone.png" data-cat="Graphic Design"
+                data-title="iPhone Mockup">
+                <div class="d-card-img"><img src="photos/design/iphone.png" alt="iPhone Mockup"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Mockup</p>
+                    <p class="d-c-name light">iPhone Series</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/jersey.jpg" data-cat="Graphic Design"
+                data-title="Jersey Design">
+                <div class="d-card-img"><img src="photos/design/jersey.jpg" alt="Jersey Design"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Product</p>
+                    <p class="d-c-name light">Kerala Jersey</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design"
+                data-title="Nike Travis">
+                <div class="d-card-img"><img src="photos/design/nike travis.jpg" alt="Nike Travis"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Poster</p>
+                    <p class="d-c-name light">Nike Travis</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/onam.webp" data-cat="Graphic Design"
+                data-title="Onam Poster">
+                <div class="d-card-img"><img src="photos/design/onam.webp" alt="Onam Poster"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Festival</p>
+                    <p class="d-c-name light">Onam Poster</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/teacher.png" data-cat="Graphic Design"
+                data-title="Teacher's Day">
+                <div class="d-card-img"><img src="photos/design/teacher.png" alt="Teacher's Day"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Social</p>
+                    <p class="d-c-name light">Teacher's Day</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/workshop.png" data-cat="Graphic Design"
+                data-title="Workshop Series">
+                <div class="d-card-img"><img src="photos/design/workshop.png" alt="Workshop Series"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Editorial</p>
+                    <p class="d-c-name light">Workshop Series</p>
+                </div>
+            </div>
+            <div class="d-card premium" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design"
+                data-title="Event Flyer">
+                <div class="d-card-img"><img src="photos/design/fLYER.jpg" alt="Event Flyer"></div>
+                <div class="d-card-info">
+                    <p class="d-c-cat light">Event</p>
+                    <p class="d-c-name light">Event Flyer</p>
                 </div>
             </div>
 
         </div>
     </section>
 
+
     <!-- ═══════════════════════════════════════════
      CTA
 ═══════════════════════════════════════════ -->
-    <section class="sec" id="contact" style="position:relative;overflow:hidden;text-align:center;">
-        <div class="cta-glow"></div>
+    <section class="sec" id="contact" style="position:relative;overflow:hidden;text-align:center;background:var(--w);">
         <div class="cta-wrap">
             <p class="eyebrow rv" style="justify-content:center;margin-bottom:1.1rem">Work together</p>
             <h2 class="cta-title rv">Let's make something<br><em>worth remembering</em></h2>
@@ -2878,13 +3054,57 @@
             } else if (dy > 80) { closeLb(); }
         }, { passive: true });
 
-        /* ── DRAG-TO-SCROLL (design row) ── */
-        const ds = document.getElementById('design-scroll');
-        let isDown = false, startX, scrollLeft;
-        ds.addEventListener('mousedown', e => { isDown = true; ds.classList.add('dragging'); startX = e.pageX - ds.offsetLeft; scrollLeft = ds.scrollLeft; });
-        ds.addEventListener('mouseleave', () => { isDown = false; ds.classList.remove('dragging'); });
-        ds.addEventListener('mouseup', () => { isDown = false; ds.classList.remove('dragging'); });
-        ds.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - ds.offsetLeft; ds.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+        /* ── INTERACTIVE MARQUEE (Design showcase) ── */
+        const reel = document.getElementById('design-scroll');
+        const bNext = document.getElementById('s-next');
+        const bPrev = document.getElementById('s-prev');
+
+        let curX = 0, targetX = 0, autoSpeed = 0.5;
+        let isHovered = false;
+
+        if (reel) {
+            reel.addEventListener('mouseenter', () => isHovered = true);
+            reel.addEventListener('mouseleave', () => isHovered = false);
+
+            function updateMarquee() {
+                if (!isHovered) {
+                    targetX -= autoSpeed;
+                }
+
+                // Interpolate
+                curX += (targetX - curX) * 0.1;
+
+                const half = reel.scrollWidth / 2;
+                if (half > 0) {
+                    if (curX <= -half) {
+                        curX += half;
+                        targetX += half;
+                    }
+                    if (curX > 0) {
+                        curX -= half;
+                        targetX -= half;
+                    }
+                }
+
+                reel.style.transform = `translateX(${curX}px)`;
+                requestAnimationFrame(updateMarquee);
+            }
+            // Start when images are likely loaded to get correct scrollWidth
+            window.addEventListener('load', updateMarquee);
+            // backup start
+            setTimeout(updateMarquee, 1000);
+
+            if (bNext && bPrev) {
+                bNext.onclick = (e) => {
+                    e.preventDefault();
+                    targetX -= 400;
+                };
+                bPrev.onclick = (e) => {
+                    e.preventDefault();
+                    targetX += 400;
+                };
+            }
+        }
 
     </script>
 </body>
