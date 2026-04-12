@@ -1188,151 +1188,197 @@
         /* ══════════════════════════════════════════
            SHOWCASE REDESIGN — Dark & Premium
         ══════════════════════════════════════════ */
+        /* ══════════════════════════════════════════
+           SHOWCASE — Dark & Premium
+        ══════════════════════════════════════════ */
         .sec-showcase {
             background: #0C0C07;
-            padding: 8rem 0;
+            padding: 8rem 0 5rem;
             overflow: hidden;
             position: relative;
+            min-height: 600px; /* Ensure section visibility */
         }
 
         .showcase-title-row {
-            padding: 0 1.4rem 4rem;
+            padding: 0 1.4rem 3.5rem;
+            position: relative;
+            z-index: 20;
         }
 
         @media(min-width:768px) {
             .showcase-title-row {
-                padding: 0 4rem 5rem;
+                padding: 0 4rem 4.5rem;
             }
-        }
-
-        .h-scroll.showcase-reel {
-            display: flex;
-            width: max-content;
-            /* Critical: allow row to extend for animation */
-            gap: 24px;
-            padding: 2rem 1.4rem 4rem;
-            cursor: default;
-            scroll-behavior: auto;
-            will-change: transform;
         }
 
         .showcase-nav-btns {
             display: flex;
-            gap: 1rem;
+            gap: .75rem;
             align-items: center;
         }
 
+        @media(max-width:767px) {
+            .showcase-nav-btns {
+                display: none;
+            }
+        }
+
         .s-btn {
-            width: 3.2rem;
-            height: 3.2rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
-            border: 1px solid rgba(250, 250, 248, 0.15);
-            background: rgba(25, 24, 18, 0.4);
-            backdrop-filter: blur(8px);
-            color: var(--w);
+            border: 1px solid rgba(250,250,248,0.12);
+            background: rgba(250,250,248,0.04);
+            color: rgba(250,250,248,0.7);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            font-size: 1rem;
             transition: all .4s var(--ease);
-            font-size: 1.2rem;
-            pointer-events: auto !important;
             z-index: 50;
         }
 
         .s-btn:hover {
             background: var(--saf);
             border-color: var(--saf);
-            transform: scale(1.1) translateY(-2px);
-            box-shadow: 0 10px 30px rgba(232, 98, 26, 0.3);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(232,98,26,0.35);
+            transform: scale(1.08);
         }
 
-        @media(max-width:767px) {
-            .showcase-nav-btns {
-                display: none;
-                /* Hide on mobile to save space */
-            }
+        .h-scroll.showcase-reel {
+            display: flex;
+            width: max-content;
+            gap: 18px;
+            padding: 1rem 1.4rem 3rem;
+            cursor: default;
+            will-change: transform;
+            align-items: stretch;
+            position: relative;
+            z-index: 10;
         }
 
-
+        .showcase-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(232,98,26,0.05) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 1;
+        }
 
         .d-card.premium {
-            flex: 0 0 260px;
-            height: 380px;
-            background: #18170F;
-            border-radius: var(--rl);
-            border: 1px solid rgba(250, 250, 248, 0.08);
+            flex: 0 0 240px;
+            height: 340px; /* Correct fixed height for mobile */
+            background: #13120C;
+            border-radius: 12px;
+            border: 1px solid rgba(250,250,248,0.07);
             position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transition: transform .6s var(--ease), border-color .4s, box-shadow .6s;
-            perspective: 1000px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+            transition: transform .55s var(--ease), border-color .4s, box-shadow .55s;
+            cursor: pointer;
         }
 
         @media(min-width:768px) {
             .d-card.premium {
-                flex: 0 0 340px;
-                height: 500px;
+                flex: 0 0 320px;
+                height: 480px; /* Fixed height for desktop */
             }
         }
 
         .d-card.premium .d-card-img {
             height: 100%;
-            border-radius: inherit;
+            width: 100%;
+            position: relative;
+        }
+
+        .d-card.premium .d-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s var(--ease);
+        }
+
+        .d-card.premium:hover .d-card-img img {
+            transform: scale(1.06);
+        }
+
+        .d-card.premium:hover {
+            transform: translateY(-10px) scale(1.025);
+            border-color: rgba(232,98,26,0.4);
+            box-shadow:
+                0 30px 70px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(232,98,26,0.15),
+                0 0 40px rgba(232,98,26,0.08);
+            z-index: 10;
         }
 
         .d-card.premium .d-card-info {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(12, 12, 7, 0.95) 0%, rgba(12, 12, 7, 0.4) 40%, transparent 100%);
+            background: linear-gradient(
+                to top,
+                rgba(12,12,7,0.97) 0%,
+                rgba(12,12,7,0.5) 38%,
+                transparent 65%
+            );
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem;
+            padding: 1.6rem 1.4rem;
             opacity: 0;
-            transition: opacity .5s var(--ease), transform .5s var(--ease);
-            transform: translateY(15px);
+            transition: opacity .45s var(--ease);
             pointer-events: none;
-        }
-
-        .d-card.premium:hover {
-            transform: scale(1.04) translateY(-10px) rotateY(5deg);
-            border-color: var(--saf);
-            box-shadow: 0 30px 70px rgba(232, 98, 26, 0.15), 0 0 50px rgba(0, 0, 0, 0.6);
-            z-index: 10;
         }
 
         .d-card.premium:hover .d-card-info {
             opacity: 1;
-            transform: translateY(0);
+        }
+
+        /* Always show on touch devices */
+        @media(hover:none) {
+            .d-card.premium .d-card-info {
+                opacity: 1;
+                background: linear-gradient(
+                    to top,
+                    rgba(12,12,7,0.9) 0%,
+                    rgba(12,12,7,0.3) 40%,
+                    transparent 65%
+                );
+            }
         }
 
         .d-c-cat.light {
+            font-size: .55rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
             color: var(--saf2);
-            font-size: .6rem;
-            letter-spacing: .2em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: .5rem;
+        }
+
+        .d-c-cat.light::before {
+            content: '';
+            width: 12px;
+            height: 1.5px;
+            background: var(--saf2);
+            flex-shrink: 0;
         }
 
         .d-c-name.light {
-            color: var(--w);
-            font-size: 1.5rem;
-            margin-top: .5rem;
-        }
-
-        .showcase-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vw;
-            background: radial-gradient(circle, rgba(232, 98, 26, 0.04) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        @media(max-width:767px) {
-            .h-scroll.showcase-reel {
-                animation-duration: 40s;
-            }
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 200;
+            color: rgba(250,250,248,0.92);
+            line-height: 1.15;
+            letter-spacing: -.01em;
         }
 
         /* ══════════════════════════════════════════
@@ -1696,6 +1742,399 @@
 
         .f-links a:hover {
             color: var(--saf);
+        }
+
+        /* ══════════════════════════════════════════
+           VIDEO EDITS SECTION — PREMIUM EDITORIAL
+        ══════════════════════════════════════════ */
+        .sec-video {
+            background: #0d0c08;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sec-video::before {
+            content: '';
+            position: absolute;
+            top: 10%; left: 0;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(232, 98, 26, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ══════════════════════════════════════════
+           VIDEO PLAYER — Glassmorphism Controls
+        ══════════════════════════════════════════ */
+        .glass-bar {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            background: rgba(12, 12, 7, 0.4);
+            backdrop-filter: blur(20px) saturate(1.8);
+            -webkit-backdrop-filter: blur(20px) saturate(1.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .4s var(--ease), transform .4s var(--ease);
+            transform: translateY(10px);
+            z-index: 30;
+        }
+
+        .v-card.playing .glass-bar {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .v-player.pro-controls .v-play-btn,
+        .v-player.pro-controls .v-mute-btn {
+            display: none;
+        }
+
+        .v-player:not(.pro-controls) .glass-bar {
+            display: none;
+        }
+
+        .prog-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prog-track {
+            flex: 1;
+            height: 3px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            cursor: pointer;
+            transition: height .2s;
+        }
+
+        .prog-track:hover {
+            height: 5px;
+        }
+
+        .prog-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, var(--saf), var(--saf2));
+            border-radius: 10px;
+            width: 0%;
+        }
+
+        .t-disp {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-variant-numeric: tabular-nums;
+            min-width: 32px;
+        }
+
+        .btn-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gb {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            transition: transform .2s var(--ease);
+        }
+
+        .gb:hover {
+            transform: scale(1.15);
+        }
+
+        .gb svg {
+            width: 14px;
+            height: 14px;
+            fill: #fff;
+        }
+
+        .gb.play-pause svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .vol-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .vol-line {
+            width: 50px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .vol-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: #fff;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .video-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .v-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .v-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .v-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .v-card:nth-child(even) .v-info {
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        .v-player {
+            position: relative;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            /* Aspect ratio is now handled by the video content itself */
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.7s var(--ease), border-color 0.4s, box-shadow 0.7s;
+        }
+
+        .v-card:hover .v-player {
+            transform: scale(1.02);
+            border-color: rgba(232, 98, 26, 0.25);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(232,98,26,0.1);
+        }
+
+        /* ── Portrait / Reel Ratio Fix (Locked 9:16) ── */
+        .v-card.v-portrait .v-player {
+            max-height: 80vh;
+            aspect-ratio: 9/16;
+            margin: 0 auto;
+            width: auto;
+        }
+
+        @media(max-width: 767px) {
+            .v-card.v-portrait .v-player {
+                max-height: none;
+                aspect-ratio: 9/16;
+                width: 100%;
+            }
+        }
+
+        .v-card.v-portrait .v-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .v-player video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: auto;
+        }
+
+        .v-play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: rgba(250,250,248, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(250,250,248, 0.18);
+            color: #fff;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: all .5s var(--ease);
+        }
+
+        .v-play-btn::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid rgba(232, 98, 26, 0.2);
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.5s var(--ease);
+        }
+
+        .v-play-btn:hover {
+            background: var(--saf);
+            border-color: var(--saf);
+            box-shadow: 0 0 40px rgba(232,98,26,0.3);
+        }
+
+        .v-play-btn:hover::after {
+            opacity: 1;
+            transform: scale(1.12);
+        }
+
+        .v-card.playing .v-play-btn {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(1.6);
+        }
+
+        .v-mute-btn {
+            position: absolute;
+            bottom: 1rem; right: 1rem;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            font-size: 0.78rem;
+        }
+
+        .v-mute-btn:hover {
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+        }
+
+        .v-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .v-series {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .6rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--saf);
+        }
+
+        .v-series::before {
+            content: '';
+            width: 14px;
+            height: 1.5px;
+            background: var(--saf);
+            flex-shrink: 0;
+        }
+
+        .v-name {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+            font-weight: 200;
+            line-height: 1.12;
+            color: rgba(250,250,248,0.922);
+            letter-spacing: -.01em;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            text-transform: none;
+            width: auto;
+        }
+
+        .v-name em {
+            font-style: italic;
+            color: var(--saf2);
+        }
+
+        .v-meta {
+            display: flex;
+            flex-direction: column;
+            gap: .35rem;
+        }
+
+        .v-meta span {
+            font-size: .72rem;
+            color: rgba(250,250,248,0.4);
+            font-weight: 300;
+            letter-spacing: .01em;
+        }
+
+        .v-meta b {
+            color: rgba(250,250,248,0.65);
+            font-weight: 400;
+            margin-right: .35rem;
+        }
+
+        .v-desc {
+            font-size: .84rem;
+            line-height: 1.78;
+            color: rgba(250,250,248,0.38);
+            max-width: 400px;
+            border-left: 1.5px solid rgba(232,98,26,0.3);
+            padding-left: .9rem;
+            margin-top: .25rem;
+        }
+
+        @media(max-width: 900px) {
+            .v-card,
+            .v-card:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 1.8rem;
+            }
+            .v-card:nth-child(even) .v-info {
+                text-align: left;
+                align-items: flex-start;
+            }
+            .video-grid {
+                gap: 4rem;
+            }
+            .v-desc {
+                max-width: 100%;
+            }
         }
 
         /* ══════════════════════════════════════════
@@ -2270,6 +2709,8 @@
             <button class="cat-pill" data-filter="dance">Classical Dance</button>
             <button class="cat-pill" data-filter="aranmula">Aranmula</button>
             <button class="cat-pill" data-filter="portrait">Portrait</button>
+            <button class="cat-pill" data-filter="ulsavam">Ulsavam</button>
+            <button class="cat-pill" data-filter="janmashtami">Krishna Janmashtami</button>
         </div>
 
         <!-- MASONRY GALLERY — add/remove .g-item blocks freely -->
@@ -2475,6 +2916,8 @@
 
             <!-- ╔══ PORTRAIT ═══════════════════════════╗ -->
 
+            <!-- ╔══ PORTRAIT ═══════════════════════════╗ -->
+
             <!-- PORTRAIT 1 -->
             <div class="g-item" data-cat="portrait" data-src="photos/portrait/p1.jpg" data-title="Study I" tabindex="0">
                 <img src="photos/portrait/p1.jpg" alt="Portrait I" loading="lazy">
@@ -2512,7 +2955,6 @@
             </div>
 
             <!-- PORTRAIT 6 -->
-            <!-- PORTRAIT 6 -->
             <div class="g-item" data-cat="portrait" data-src="photos/portrait/p6.png" data-title="Dancer — backstage"
                 tabindex="0">
                 <img src="photos/portrait/p6.png" alt="Dancer backstage" loading="lazy">
@@ -2533,10 +2975,287 @@
                 <div class="g-glass"><span class="g-cat">Portrait</span><span class="g-name">Study V</span></div>
             </div>
 
+            <!-- ╔══ UL SAVAM ═════════════════════════════╗ -->
+            <div class="g-item" data-cat="ulsavam" data-src="photos/ulsavam/yk_photo_127.png" data-title="Ulsavam I" tabindex="0">
+                <img src="photos/ulsavam/yk_photo_127.png" alt="Ulsavam" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Ulsavam</span><span class="g-name">Festival Ritual I</span></div>
+            </div>
+            <div class="g-item" data-cat="ulsavam" data-src="photos/ulsavam/yk_photo_128.png" data-title="Ulsavam II" tabindex="0">
+                <img src="photos/ulsavam/yk_photo_128.png" alt="Ulsavam" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Ulsavam</span><span class="g-name">Festival Ritual II</span></div>
+            </div>
+            <div class="g-item" data-cat="ulsavam" data-src="photos/ulsavam/yk_photo_130.png" data-title="Ulsavam III" tabindex="0">
+                <img src="photos/ulsavam/yk_photo_130.png" alt="Ulsavam" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Ulsavam</span><span class="g-name">Festival Ritual III</span></div>
+            </div>
+            <div class="g-item" data-cat="ulsavam" data-src="photos/ulsavam/yk_photo_141.png" data-title="Ulsavam IV" tabindex="0">
+                <img src="photos/ulsavam/yk_photo_141.png" alt="Ulsavam" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Ulsavam</span><span class="g-name">Festival Ritual IV</span></div>
+            </div>
+            <div class="g-item" data-cat="ulsavam" data-src="photos/ulsavam/yk_photo_147.png" data-title="Ulsavam V" tabindex="0">
+                <img src="photos/ulsavam/yk_photo_147.png" alt="Ulsavam" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Ulsavam</span><span class="g-name">Festival Ritual V</span></div>
+            </div>
+
+            <!-- ╔══ KRISHNA JANMASHTAMI ═══════════════════╗ -->
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_10.png" data-title="Janmashtami I" tabindex="0">
+                <img src="photos/krishna janmashtmi/yk_krishn_photo_10.png" alt="Janmashtami" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study I</span></div>
+            </div>
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_21.png" data-title="Janmashtami II" tabindex="0">
+                <img src="photos/krishna janmashtmi/yk_krishn_photo_21.png" alt="Janmashtami" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study II</span></div>
+            </div>
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_57.png" data-title="Janmashtami III" tabindex="0">
+                <img src="photos/krishna janmashtmi/yk_krishn_photo_57.png" alt="Janmashtami" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study III</span></div>
+            </div>
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_74.png" data-title="Janmashtami IV" tabindex="0">
+                <img src="photos/krishna janmashtmi/yk_krishn_photo_74.png" alt="Janmashtami" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study IV</span></div>
+            </div>
+
 
             <!-- ╔══ ADD MORE — just copy any .g-item block and change data-cat / src / data-title ╗ -->
 
         </div><!-- end .gallery -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     VIDEO EDITS
+═══════════════════════════════════════════ -->
+    <section class="sec sec-video" id="video-edits">
+        <div class="sec-row rv">
+            <div>
+                <p class="eyebrow" style="color:var(--saf2)">Motion & Narrative</p>
+                <h2 class="s-title light">Video <em>Edits</em></h2>
+            </div>
+        </div>
+
+        <div class="video-grid">
+
+            <div class="v-card rv d1 v-portrait">
+                    <div class="v-player">
+                        <video src="video/4an-16.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb mute-unmute"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Film Edit Series</span>
+                    <h3 class="v-name">Anu — Portrait<br>in <em>Motion</em></h3>
+                    <div class="v-meta">
+                        <span><b>Videographer</b> @moothapa</span>
+                        <span><b>Editor</b> @yung.krshn</span>
+                    </div>
+                    <p class="v-desc">Captured by moothapa and reimagined through a rhythmic, cinematic edit — light and fluid movement as the only language.</p>
+                </div>
+            </div>
+
+            <div class="v-card rv d2">
+                    <div class="v-player">
+                        <video src="video/Comp 1.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb m-un-btn"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Cultural Heritage</span>
+                    <h3 class="v-name">Poovathoor<br><em>Palliyodam</em></h3>
+                    <div class="v-meta">
+                        <span><b>Videographer</b> @yung.krshn</span>
+                        <span><b>Editor</b> @yung.krshn</span>
+                    </div>
+                    <p class="v-desc">A fast-paced tribute to the Poovathoor Palliyodam — the raw energy and tradition of my hometown's snake boat race.</p>
+                </div>
+            </div>
+
+            <div class="v-card rv d3 v-portrait">
+                    <div class="v-player">
+                        <video src="video/run_4.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb m-un-btn"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Ritual Arts</span>
+                    <h3 class="v-name">Theyyam — <em>Spirit</em><br>of Kerala</h3>
+                    <div class="v-meta">
+                        <span><b>Videographer</b> @yung.krshn</span>
+                        <span><b>Editor</b> @yung.krshn</span>
+                    </div>
+                    <p class="v-desc">A cinematic glimpse into Theyyam, the ancient ritualistic dance of Northern Kerala. High-contrast grading meets divine intensity.</p>
+                </div>
+            </div>
+
+            <div class="v-card rv d1">
+                    <div class="v-player">
+                        <video src="video/VYMA.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb m-un-btn"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Event Showcase</span>
+                    <h3 class="v-name">Vishwalayam —<br><em>Art Fest</em></h3>
+                    <div class="v-meta">
+                        <span><b>Videographer</b> @yung.krshn</span>
+                        <span><b>Editor</b> @yung.krshn</span>
+                    </div>
+                    <p class="v-desc">Capturing the vibrant energy of the Vishwalayam arts festival, celebrating creativity through a dynamic montage.</p>
+                </div>
+            </div>
+
+            <div class="v-card rv d2">
+                    <div class="v-player">
+                        <video src="video/thatom.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb m-un-btn"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Visual Narrative</span>
+                    <h3 class="v-name">Thatom — <em>Music</em><br>Video Edit</h3>
+                    <div class="v-meta">
+                        <span><b>Editor</b> @yung.krshn</span>
+                        <span><b>Production</b> Newthira</span>
+                    </div>
+                    <p class="v-desc">A rhythmic motion edit for Thatom, in collaboration with Newthira Production. Synchronized beats and visual flow.</p>
+                </div>
+            </div>
+
+            <div class="v-card rv d3 v-portrait">
+                    <div class="v-player">
+                        <video src="video/paru.mp4" preload="metadata" muted loop playsinline></video>
+                        <button class="v-play-btn" aria-label="Play">▶</button>
+                        <button class="v-mute-btn" title="Toggle mute">🔇</button>
+
+                        <!-- Premium Glass Controls -->
+                        <div class="glass-bar">
+                            <div class="prog-row">
+                                <div class="t-disp elapsed">0:00</div>
+                                <div class="prog-track">
+                                    <div class="prog-fill"></div>
+                                </div>
+                                <div class="t-disp duration">0:00</div>
+                            </div>
+                            <div class="btn-row">
+                                <button class="gb back" title="Back 10s"><svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg></button>
+                                <button class="gb play-pause" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                                <button class="gb forward" title="Forward 10s"><svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
+                                <div class="vol-group">
+                                    <button class="gb mute-unmute"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button>
+                                    <div class="vol-line"><div class="vol-fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="v-info">
+                    <span class="v-series">Motion Graphics</span>
+                    <h3 class="v-name">Paru — <em>Mo-graph</em><br>Style</h3>
+                    <div class="v-meta">
+                        <span><b>Editor</b> @yung.krshn</span>
+                    </div>
+                    <p class="v-desc">Experimental birthday edit using motion graphics — inspired by international visual trends and typographic interplay.</p>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -2823,6 +3542,16 @@
                 </div>
             </div>
 
+            <!-- Duplicated for Infinite Loop -->
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/LDF.jpg" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/cyber.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/gopro poster.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/iphone.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/jersey.jpg" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/nike travis.jpg" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/workshop.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/fLYER.jpg" alt=""></div></div>
         </div>
     </section>
 
@@ -3054,57 +3783,181 @@
             } else if (dy > 80) { closeLb(); }
         }, { passive: true });
 
-        /* ── INTERACTIVE MARQUEE (Design showcase) ── */
+        /* ── DESIGN SHOWCASE MARQUEE ── */
         const reel = document.getElementById('design-scroll');
         const bNext = document.getElementById('s-next');
         const bPrev = document.getElementById('s-prev');
 
-        let curX = 0, targetX = 0, autoSpeed = 0.5;
+        let curX = 0,
+            targetX = 0;
+        const autoSpeed = 0.6;
         let isHovered = false;
+        let marqueeStarted = false;
+
+        function updateMarquee() {
+            if (!isHovered) targetX -= autoSpeed;
+
+            curX += (targetX - curX) * 0.08;
+
+            const half = reel.scrollWidth / 2;
+            if (half > 0) {
+                if (curX <= -half) {
+                    curX += half;
+                    targetX += half;
+                }
+                if (curX > 0) {
+                    curX -= half;
+                    targetX -= half;
+                }
+            }
+
+            reel.style.transform = `translateX(${curX}px)`;
+            requestAnimationFrame(updateMarquee);
+        }
+
+        function startMarquee() {
+            if (marqueeStarted || !reel) return;
+            marqueeStarted = true;
+            updateMarquee();
+        }
 
         if (reel) {
             reel.addEventListener('mouseenter', () => isHovered = true);
             reel.addEventListener('mouseleave', () => isHovered = false);
 
-            function updateMarquee() {
-                if (!isHovered) {
-                    targetX -= autoSpeed;
-                }
-
-                // Interpolate
-                curX += (targetX - curX) * 0.1;
-
-                const half = reel.scrollWidth / 2;
-                if (half > 0) {
-                    if (curX <= -half) {
-                        curX += half;
-                        targetX += half;
-                    }
-                    if (curX > 0) {
-                        curX -= half;
-                        targetX -= half;
-                    }
-                }
-
-                reel.style.transform = `translateX(${curX}px)`;
-                requestAnimationFrame(updateMarquee);
-            }
-            // Start when images are likely loaded to get correct scrollWidth
-            window.addEventListener('load', updateMarquee);
-            // backup start
-            setTimeout(updateMarquee, 1000);
+            window.addEventListener('load', startMarquee);
+            setTimeout(startMarquee, 800);
 
             if (bNext && bPrev) {
-                bNext.onclick = (e) => {
+                bNext.addEventListener('click', e => {
                     e.preventDefault();
+                    isHovered = true;
                     targetX -= 400;
-                };
-                bPrev.onclick = (e) => {
+                    setTimeout(() => isHovered = false, 2000);
+                });
+                bPrev.addEventListener('click', e => {
                     e.preventDefault();
+                    isHovered = true;
                     targetX += 400;
-                };
+                    setTimeout(() => isHovered = false, 2000);
+                });
             }
         }
+
+        /* ── VIDEO PLAYER LOGIC ── */
+        document.querySelectorAll('.v-card').forEach(card => {
+            const vid = card.querySelector('video');
+            const player = card.querySelector('.v-player');
+            const btn = card.querySelector('.v-play-btn');
+            const muteBtn = card.querySelector('.v-mute-btn');
+
+            // Advanced controls elements
+            const bar = card.querySelector('.glass-bar');
+            const progTrack = card.querySelector('.prog-track');
+            const progFill = card.querySelector('.prog-fill');
+            const tElapsed = card.querySelector('.elapsed');
+            const tDuration = card.querySelector('.duration');
+            const btnPlayPause = card.querySelector('.play-pause');
+            const btnBack = card.querySelector('.back');
+            const btnFwd = card.querySelector('.forward');
+            const btnMUn = card.querySelector('.mute-unmute, .m-un-btn');
+            const volLine = card.querySelector('.vol-line');
+            const volFill = card.querySelector('.vol-fill');
+
+            const fmt = (s) => {
+                const m = Math.floor(s / 60);
+                const sc = Math.floor(s % 60);
+                return `${m}:${sc < 10 ? '0' : ''}${sc}`;
+            };
+
+            const updateProgUI = () => {
+                if (!vid.duration) return;
+                const p = (vid.currentTime / vid.duration) * 100;
+                if (progFill) progFill.style.width = `${p}%`;
+                if (tElapsed) tElapsed.textContent = fmt(vid.currentTime);
+            };
+
+            const togglePlay = () => {
+                if (vid.paused) {
+                    document.querySelectorAll('video').forEach(v => {
+                        if (v !== vid) {
+                            v.pause();
+                            v.closest('.v-card')?.classList.remove('playing');
+                        }
+                    });
+                    vid.play();
+                    card.classList.add('playing');
+                } else {
+                    vid.pause();
+                    card.classList.remove('playing');
+                }
+            };
+
+            const toggleMute = (e) => {
+                if (e) e.stopPropagation();
+                vid.muted = !vid.muted;
+                const icon = vid.muted ? '🔇' : '🔊';
+                if (muteBtn) muteBtn.textContent = icon;
+                if (btnMUn) {
+                    btnMUn.innerHTML = vid.muted
+                        ? '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>'
+                        : '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+                }
+                if (volFill) volFill.style.opacity = vid.muted ? '0.3' : '1';
+            };
+
+            // Detect long videos and show pro controls
+            vid.addEventListener('loadedmetadata', () => {
+                if (vid.duration > 60) {
+                    player.classList.add('pro-controls');
+                    if (tDuration) tDuration.textContent = fmt(vid.duration);
+                }
+            });
+
+            vid.addEventListener('timeupdate', updateProgUI);
+
+            // Standard controls
+            if (btn) btn.addEventListener('click', togglePlay);
+            vid.addEventListener('click', togglePlay);
+            if (muteBtn) muteBtn.addEventListener('click', toggleMute);
+
+            // Advanced controls
+            if (btnPlayPause) btnPlayPause.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+            if (btnBack) btnBack.addEventListener('click', (e) => { e.stopPropagation(); vid.currentTime = Math.max(0, vid.currentTime - 10); });
+            if (btnFwd) btnFwd.addEventListener('click', (e) => { e.stopPropagation(); vid.currentTime = Math.min(vid.duration, vid.currentTime + 10); });
+            if (btnMUn) btnMUn.addEventListener('click', toggleMute);
+
+            if (progTrack) {
+                progTrack.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const r = progTrack.getBoundingClientRect();
+                    const p = (e.clientX - r.left) / r.width;
+                    vid.currentTime = p * vid.duration;
+                });
+            }
+
+            if (volLine) {
+                volLine.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const r = volLine.getBoundingClientRect();
+                    const v = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+                    vid.volume = v;
+                    vid.muted = false;
+                    if (volFill) volFill.style.width = `${v * 100}%`;
+                    toggleMute(null); // refresh icons
+                    vid.muted = false; // force unmute
+                });
+            }
+
+            vid.addEventListener('play', () => {
+                card.classList.add('playing');
+                if (btnPlayPause) btnPlayPause.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+            });
+            vid.addEventListener('pause', () => {
+                card.classList.remove('playing');
+                if (btnPlayPause) btnPlayPause.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+            });
+        });
 
     </script>
 </body>
