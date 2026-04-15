@@ -1247,10 +1247,10 @@
             transform: scale(1.08);
         }
 
-        .h-scroll.showcase-reel {
+        .showcase-reel {
             display: flex;
             width: max-content;
-            gap: 18px;
+            gap: 20px;
             padding: 1rem 1.4rem 3rem;
             cursor: default;
             will-change: transform;
@@ -1947,16 +1947,18 @@
         /* ── Portrait / Reel Ratio Fix (Locked 9:16) ── */
         .v-card.v-portrait .v-player {
             max-height: 80vh;
-            aspect-ratio: 9/16;
             margin: 0 auto;
-            width: auto;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @media(max-width: 767px) {
             .v-card.v-portrait .v-player {
                 max-height: none;
-                aspect-ratio: 9/16;
                 width: 100%;
+                height: auto;
             }
         }
 
@@ -2998,20 +3000,20 @@
             </div>
 
             <!-- ╔══ KRISHNA JANMASHTAMI ═══════════════════╗ -->
-            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_10.png" data-title="Janmashtami I" tabindex="0">
-                <img src="photos/krishna janmashtmi/yk_krishn_photo_10.png" alt="Janmashtami" loading="lazy">
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna_janmashtmi/yk_krishn_photo_10.png" data-title="Janmashtami I" tabindex="0">
+                <img src="photos/krishna_janmashtmi/yk_krishn_photo_10.png" alt="Janmashtami" loading="lazy">
                 <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study I</span></div>
             </div>
-            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_21.png" data-title="Janmashtami II" tabindex="0">
-                <img src="photos/krishna janmashtmi/yk_krishn_photo_21.png" alt="Janmashtami" loading="lazy">
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna_janmashtmi/yk_krishn_photo_21.png" data-title="Janmashtami II" tabindex="0">
+                <img src="photos/krishna_janmashtmi/yk_krishn_photo_21.png" alt="Janmashtami" loading="lazy">
                 <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study II</span></div>
             </div>
-            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_57.png" data-title="Janmashtami III" tabindex="0">
-                <img src="photos/krishna janmashtmi/yk_krishn_photo_57.png" alt="Janmashtami" loading="lazy">
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna_janmashtmi/yk_krishn_photo_57.png" data-title="Janmashtami III" tabindex="0">
+                <img src="photos/krishna_janmashtmi/yk_krishn_photo_57.png" alt="Janmashtami" loading="lazy">
                 <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study III</span></div>
             </div>
-            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna janmashtmi/yk_krishn_photo_74.png" data-title="Janmashtami IV" tabindex="0">
-                <img src="photos/krishna janmashtmi/yk_krishn_photo_74.png" alt="Janmashtami" loading="lazy">
+            <div class="g-item" data-cat="janmashtami" data-src="photos/krishna_janmashtmi/yk_krishn_photo_74.png" data-title="Janmashtami IV" tabindex="0">
+                <img src="photos/krishna_janmashtmi/yk_krishn_photo_74.png" alt="Janmashtami" loading="lazy">
                 <div class="g-glass"><span class="g-cat">Krishna Janmashtami</span><span class="g-name">Janmashtami Study IV</span></div>
             </div>
 
@@ -3073,7 +3075,7 @@
 
             <div class="v-card rv d2">
                     <div class="v-player">
-                        <video src="video/Comp 1.mp4" preload="metadata" muted loop playsinline></video>
+                        <video src="video/Comp_1.mp4" preload="metadata" muted loop playsinline></video>
                         <button class="v-play-btn" aria-label="Play">▶</button>
                         <button class="v-mute-btn" title="Toggle mute">🔇</button>
 
@@ -3340,11 +3342,10 @@
         </div>
 
         <!-- We duplicate items for a seamless loop animation -->
-        <div class="h-scroll showcase-reel rv d1" id="design-scroll">
+        <div class="showcase-reel" id="design-scroll">
 
             <!-- DESIGN 1: 3x3 basketball -->
-            <div class="d-card premium" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design"
-                data-title="3x3 Basketball">
+            <div class="d-card premium" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design" data-title="3x3 Basketball">
                 <div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Poster</p>
@@ -3353,8 +3354,7 @@
             </div>
 
             <!-- DESIGN 2: LDF -->
-            <div class="d-card premium" data-src="photos/design/LDF.jpg" data-cat="Graphic Design"
-                data-title="LDF Campaign">
+            <div class="d-card premium" data-src="photos/design/LDF.jpg" data-cat="Graphic Design" data-title="LDF Campaign">
                 <div class="d-card-img"><img src="photos/design/LDF.jpg" alt="LDF Campaign"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Campaign</p>
@@ -3363,8 +3363,7 @@
             </div>
 
             <!-- DESIGN 3: Cyber -->
-            <div class="d-card premium" data-src="photos/design/cyber.png" data-cat="Graphic Design"
-                data-title="Cyber Identity">
+            <div class="d-card premium" data-src="photos/design/cyber.png" data-cat="Graphic Design" data-title="Cyber Identity">
                 <div class="d-card-img"><img src="photos/design/cyber.png" alt="Cyber Identity"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Identity</p>
@@ -3373,8 +3372,7 @@
             </div>
 
             <!-- DESIGN 4: GoPro -->
-            <div class="d-card premium" data-src="photos/design/gopro poster.png" data-cat="Graphic Design"
-                data-title="GoPro Poster">
+            <div class="d-card premium" data-src="photos/design/gopro poster.png" data-cat="Graphic Design" data-title="GoPro Poster">
                 <div class="d-card-img"><img src="photos/design/gopro poster.png" alt="GoPro Poster"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Poster</p>
@@ -3383,8 +3381,7 @@
             </div>
 
             <!-- DESIGN 5: iPhone -->
-            <div class="d-card premium" data-src="photos/design/iphone.png" data-cat="Graphic Design"
-                data-title="iPhone Mockup">
+            <div class="d-card premium" data-src="photos/design/iphone.png" data-cat="Graphic Design" data-title="iPhone Mockup">
                 <div class="d-card-img"><img src="photos/design/iphone.png" alt="iPhone Mockup"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Mockup</p>
@@ -3393,8 +3390,7 @@
             </div>
 
             <!-- DESIGN 6: Jersey -->
-            <div class="d-card premium" data-src="photos/design/jersey.jpg" data-cat="Graphic Design"
-                data-title="Jersey Design">
+            <div class="d-card premium" data-src="photos/design/jersey.jpg" data-cat="Graphic Design" data-title="Jersey Design">
                 <div class="d-card-img"><img src="photos/design/jersey.jpg" alt="Jersey Design"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Product</p>
@@ -3403,8 +3399,7 @@
             </div>
 
             <!-- DESIGN 7: Nike -->
-            <div class="d-card premium" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design"
-                data-title="Nike Travis">
+            <div class="d-card premium" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design" data-title="Nike Travis">
                 <div class="d-card-img"><img src="photos/design/nike travis.jpg" alt="Nike Travis"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Poster</p>
@@ -3413,8 +3408,7 @@
             </div>
 
             <!-- DESIGN 8: Onam -->
-            <div class="d-card premium" data-src="photos/design/onam.webp" data-cat="Graphic Design"
-                data-title="Onam Poster">
+            <div class="d-card premium" data-src="photos/design/onam.webp" data-cat="Graphic Design" data-title="Onam Poster">
                 <div class="d-card-img"><img src="photos/design/onam.webp" alt="Onam Poster"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Festival</p>
@@ -3423,8 +3417,7 @@
             </div>
 
             <!-- DESIGN 9: Teacher -->
-            <div class="d-card premium" data-src="photos/design/teacher.png" data-cat="Graphic Design"
-                data-title="Teacher's Day">
+            <div class="d-card premium" data-src="photos/design/teacher.png" data-cat="Graphic Design" data-title="Teacher's Day">
                 <div class="d-card-img"><img src="photos/design/teacher.png" alt="Teacher's Day"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Social</p>
@@ -3433,8 +3426,7 @@
             </div>
 
             <!-- DESIGN 10: Workshop -->
-            <div class="d-card premium" data-src="photos/design/workshop.png" data-cat="Graphic Design"
-                data-title="Workshop Series">
+            <div class="d-card premium" data-src="photos/design/workshop.png" data-cat="Graphic Design" data-title="Workshop Series">
                 <div class="d-card-img"><img src="photos/design/workshop.png" alt="Workshop Series"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Editorial</p>
@@ -3443,8 +3435,7 @@
             </div>
 
             <!-- DESIGN 11: Flyer -->
-            <div class="d-card premium" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design"
-                data-title="Event Flyer">
+            <div class="d-card premium" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design" data-title="Event Flyer">
                 <div class="d-card-img"><img src="photos/design/fLYER.jpg" alt="Event Flyer"></div>
                 <div class="d-card-info">
                     <p class="d-c-cat light">Event</p>
@@ -3453,96 +3444,6 @@
             </div>
 
             <!-- DUPLICATES FOR SEAMLESS LOOP -->
-            <div class="d-card premium" data-src="photos/design/3x3 basket ball.png" data-cat="Graphic Design"
-                data-title="3x3 Basketball">
-                <div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt="3x3 Basketball"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Poster</p>
-                    <p class="d-c-name light">3x3 Basketball</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/LDF.jpg" data-cat="Graphic Design"
-                data-title="LDF Campaign">
-                <div class="d-card-img"><img src="photos/design/LDF.jpg" alt="LDF Campaign"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Campaign</p>
-                    <p class="d-c-name light">LDF Politics</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/cyber.png" data-cat="Graphic Design"
-                data-title="Cyber Identity">
-                <div class="d-card-img"><img src="photos/design/cyber.png" alt="Cyber Identity"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Identity</p>
-                    <p class="d-c-name light">Cyber State</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/gopro poster.png" data-cat="Graphic Design"
-                data-title="GoPro Poster">
-                <div class="d-card-img"><img src="photos/design/gopro poster.png" alt="GoPro Poster"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Poster</p>
-                    <p class="d-c-name light">GoPro Adventure</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/iphone.png" data-cat="Graphic Design"
-                data-title="iPhone Mockup">
-                <div class="d-card-img"><img src="photos/design/iphone.png" alt="iPhone Mockup"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Mockup</p>
-                    <p class="d-c-name light">iPhone Series</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/jersey.jpg" data-cat="Graphic Design"
-                data-title="Jersey Design">
-                <div class="d-card-img"><img src="photos/design/jersey.jpg" alt="Jersey Design"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Product</p>
-                    <p class="d-c-name light">Kerala Jersey</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/nike travis.jpg" data-cat="Graphic Design"
-                data-title="Nike Travis">
-                <div class="d-card-img"><img src="photos/design/nike travis.jpg" alt="Nike Travis"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Poster</p>
-                    <p class="d-c-name light">Nike Travis</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/onam.webp" data-cat="Graphic Design"
-                data-title="Onam Poster">
-                <div class="d-card-img"><img src="photos/design/onam.webp" alt="Onam Poster"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Festival</p>
-                    <p class="d-c-name light">Onam Poster</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/teacher.png" data-cat="Graphic Design"
-                data-title="Teacher's Day">
-                <div class="d-card-img"><img src="photos/design/teacher.png" alt="Teacher's Day"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Social</p>
-                    <p class="d-c-name light">Teacher's Day</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/workshop.png" data-cat="Graphic Design"
-                data-title="Workshop Series">
-                <div class="d-card-img"><img src="photos/design/workshop.png" alt="Workshop Series"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Editorial</p>
-                    <p class="d-c-name light">Workshop Series</p>
-                </div>
-            </div>
-            <div class="d-card premium" data-src="photos/design/fLYER.jpg" data-cat="Graphic Design"
-                data-title="Event Flyer">
-                <div class="d-card-img"><img src="photos/design/fLYER.jpg" alt="Event Flyer"></div>
-                <div class="d-card-info">
-                    <p class="d-c-cat light">Event</p>
-                    <p class="d-c-name light">Event Flyer</p>
-                </div>
-            </div>
-
-            <!-- Duplicated for Infinite Loop -->
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/3x3 basket ball.png" alt=""></div></div>
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/LDF.jpg" alt=""></div></div>
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/cyber.png" alt=""></div></div>
@@ -3550,7 +3451,7 @@
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/iphone.png" alt=""></div></div>
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/jersey.jpg" alt=""></div></div>
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/nike travis.jpg" alt=""></div></div>
-            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/workshop.png" alt=""></div></div>
+            <div class="d-card premium"><div class="d-card-img"><img src="photos/design/onam.webp" alt=""></div></div>
             <div class="d-card premium"><div class="d-card-img"><img src="photos/design/fLYER.jpg" alt=""></div></div>
         </div>
     </section>
