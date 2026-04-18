@@ -2480,6 +2480,301 @@
         .btt:hover {
             background: var(--saf);
         }
+
+        /* ══════════════════════════════════════════
+   VISHU SHOOT — Editorial Feature Section
+══════════════════════════════════════════ */
+        .vishu-sec {
+            background: linear-gradient(160deg, #FDF8EE 0%, #FFF7E6 40%, #FEF3D0 100%);
+            padding: 5rem 1.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vishu-sec::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(232,180,26,.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .vishu-sec::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(232,98,26,.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @media(min-width:768px) { .vishu-sec { padding: 7rem 3rem; } }
+        @media(min-width:1200px) { .vishu-sec { padding: 8rem 5rem; } }
+
+        .vishu-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        @media(min-width:768px) {
+            .vishu-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+                margin-bottom: 4rem;
+            }
+        }
+
+        .vishu-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            font-size: .6rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: #C47B0A;
+            margin-bottom: .5rem;
+        }
+
+        .vishu-eyebrow::before {
+            content: '';
+            width: 16px;
+            height: 1.5px;
+            background: #C47B0A;
+            flex-shrink: 0;
+        }
+
+        .vishu-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 5.5vw, 4rem);
+            font-weight: 200;
+            line-height: 1.05;
+            color: var(--ink);
+            letter-spacing: -.02em;
+        }
+
+        .vishu-title em {
+            font-style: italic;
+            color: #C47B0A;
+        }
+
+        .vishu-meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(196,123,10,.1);
+            border: 1px solid rgba(196,123,10,.25);
+            color: #C47B0A;
+            border-radius: 100px;
+            padding: .4rem 1rem;
+            font-size: .62rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        .vishu-meta-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #C47B0A;
+            flex-shrink: 0;
+        }
+
+        /* Hero feature — large image + info side by side */
+        .vishu-hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media(min-width:768px) {
+            .vishu-hero {
+                grid-template-columns: 1.4fr 1fr;
+                gap: 2rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        .vishu-hero-img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #EDD9A3;
+            box-shadow: 0 20px 60px rgba(24,23,15,.15);
+            cursor: pointer;
+        }
+
+        .vishu-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s var(--ease);
+        }
+
+        .vishu-hero-img:hover img { transform: scale(1.05); }
+
+        .vishu-hero-img .vh-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(24,23,15,.55) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity .4s;
+        }
+
+        .vishu-hero-img:hover .vh-overlay { opacity: 1; }
+
+        .vishu-hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .vishu-side-img {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: #EDD9A3;
+            box-shadow: 0 12px 40px rgba(24,23,15,.12);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .vishu-side-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .9s var(--ease);
+        }
+
+        .vishu-side-img:hover img { transform: scale(1.06); }
+
+        /* Model info card */
+        .vishu-model-card {
+            background: rgba(255,255,255,.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(196,123,10,.18);
+            border-radius: 16px;
+            padding: 1.4rem 1.6rem;
+            box-shadow: 0 8px 32px rgba(24,23,15,.08);
+        }
+
+        .vmc-label {
+            font-size: .52rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #C47B0A;
+            font-weight: 500;
+            margin-bottom: .5rem;
+        }
+
+        .vmc-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 200;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: .35rem;
+        }
+
+        .vmc-name em { font-style: italic; color: #C47B0A; }
+
+        .vmc-detail {
+            font-size: .72rem;
+            color: var(--i2);
+            line-height: 1.7;
+        }
+
+        .vmc-detail b { color: var(--ink); font-weight: 500; }
+
+        /* Grid of remaining shots */
+        .vishu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        @media(min-width:600px) { .vishu-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+        @media(min-width:900px) { .vishu-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
+
+        .vishu-thumb {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #EDD9A3;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(24,23,15,.1);
+        }
+
+        @media(min-width:1200px) { .vishu-thumb { border-radius: var(--rl); } }
+
+        .vishu-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .8s var(--ease);
+        }
+
+        .vishu-thumb:hover img { transform: scale(1.08); }
+
+        .vishu-thumb .vt-glass {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(24,23,15,.6) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity .35s;
+            display: flex;
+            align-items: flex-end;
+            padding: .9rem;
+        }
+
+        .vishu-thumb:hover .vt-glass { opacity: 1; }
+
+        .vt-glass span {
+            font-size: .52rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(250,250,248,.8);
+        }
+
+        /* Konna flower decorative divider */
+        .vishu-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0;
+        }
+
+        .vishu-divider::before,
+        .vishu-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(196,123,10,.35), transparent);
+        }
+
+        .vishu-divider-icon {
+            font-size: 1.2rem;
+            color: #C47B0A;
+            letter-spacing: .4rem;
+        }
+
     </style>
 </head>
 
@@ -2519,7 +2814,8 @@
         <a href="#dance" onclick="closeDrawer()"><em>02</em> Dance</a>
         <a href="#aranmula" onclick="closeDrawer()"><em>03</em> Aranmula</a>
         <a href="#portrait" onclick="closeDrawer()"><em>04</em> Portrait</a>
-        <a href="#design" onclick="closeDrawer()"><em>05</em> Design</a>
+        <a href="#vishu-shoot" onclick="closeDrawer()"><em>05</em> Vishu</a>
+        <a href="#design" onclick="closeDrawer()"><em>06</em> Design</a>
         <div class="nav-drawer-foot">
             <a href="https://instagram.com/yung.krshn" target="_blank">Instagram</a>
             <a href="mailto:hello@yungkrshn.com">Email</a>
@@ -2538,6 +2834,7 @@
                 <li><a href="#dance">Dance</a></li>
                 <li><a href="#aranmula">Aranmula</a></li>
                 <li><a href="#portrait">Portrait</a></li>
+                <li><a href="#vishu-shoot">Vishu</a></li>
                 <li><a href="#design">Design</a></li>
             </ul>
             <div class="nav-cta"><a href="#contact">Commission work</a></div>
@@ -2677,16 +2974,16 @@
                 </div>
             </div>
 
-            <!-- Card 5: Design -->
-            <div class="b-card" data-cursor="Design">
-                <!-- SLOT B5: Best design/poster -->
-                <img src="photos/design/3x3 basket ball.png" alt="Graphic design" loading="lazy">
-                <div class="b-fall" style="background:linear-gradient(135deg,#B8A8D0,#7860A8)"></div>
+            <!-- Card 5: Vishu Shoot -->
+            <div class="b-card" data-cursor="Vishu" onclick="location.href='#vishu-shoot'">
+                <!-- SLOT B5: Vishu Shoot hero -->
+                <img src="photos/vishu shoot/FV_hanna_1.png" alt="Vishu Shoot — Hanna James" loading="lazy">
+                <div class="b-fall" style="background:linear-gradient(135deg,#F5D87A,#C47B0A)"></div>
                 <div class="b-veil"></div>
                 <div class="b-info">
-                    <span class="b-num">05 — Design</span>
-                    <div class="b-name">Graphic<br>Design</div>
-                    <span class="b-tag">11 works</span>
+                    <span class="b-num">05 — Festive</span>
+                    <div class="b-name">Vishu<br>Shoot</div>
+                    <span class="b-tag">Hanna James</span><span class="b-tag">10 shots</span>
                 </div>
             </div>
 
@@ -2700,8 +2997,9 @@
         <div class="sec-row rv">
             <div>
                 <p class="eyebrow">Full Archive</p>
-                <h2 class="s-title">The <em>complete</em> work</h2>
+                <h2 class="s-title" style="background:linear-gradient(100deg,var(--ink) 30%,var(--saf) 70%,#C47B0A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">The <em style="-webkit-text-fill-color:transparent;">complete</em> work</h2>
             </div>
+            <a href="#filter-pills" class="lnk">See all <span style="display:inline-block;transition:transform .3s var(--ease);" onmouseenter="this.style.transform='translateX(4px)'" onmouseleave="this.style.transform='translateX(0)'">→</span></a>
         </div>
 
         <!-- Filter pills -->
@@ -2713,6 +3011,7 @@
             <button class="cat-pill" data-filter="portrait">Portrait</button>
             <button class="cat-pill" data-filter="ulsavam">Ulsavam</button>
             <button class="cat-pill" data-filter="janmashtami">Krishna Janmashtami</button>
+            <button class="cat-pill" data-filter="vishu">Vishu Shoot</button>
         </div>
 
         <!-- MASONRY GALLERY — add/remove .g-item blocks freely -->
@@ -3020,7 +3319,173 @@
 
             <!-- ╔══ ADD MORE — just copy any .g-item block and change data-cat / src / data-title ╗ -->
 
+            <!-- ╔══ VISHU SHOOT ═══════════════════════════╗ -->
+            <div class="g-item feat" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_1.png" data-title="Hanna — Vishu Morning I" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_1.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Morning I</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_3.png" data-title="Hanna — Kanni Konna II" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_3.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Kanni Konna II</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_6.png" data-title="Hanna — Golden Light III" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_6.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Golden Light III</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_10.png" data-title="Hanna — Vishukkani IV" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_10.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Vishukkani IV</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_11.png" data-title="Hanna — Silk & Blossoms V" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_11.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Silk & Blossoms V</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_13.png" data-title="Hanna — Portrait VI" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_13.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Portrait VI</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_15.png" data-title="Hanna — Festival Joy VII" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_15.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Festival Joy VII</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_18.png" data-title="Hanna — Traditional VIII" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_18.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Traditional VIII</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_19.png" data-title="Hanna — Golden IX" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_19.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Golden IX</span></div>
+            </div>
+            <div class="g-item" data-cat="vishu" data-src="photos/vishu shoot/FV_hanna_23.png" data-title="Hanna — Vishu Spirit X" tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_23.png" alt="Hanna Vishu shoot" loading="lazy">
+                <div class="g-glass"><span class="g-cat">Vishu Shoot</span><span class="g-name">Hanna — Vishu Spirit X</span></div>
+            </div>
+
         </div><!-- end .gallery -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     VISHU SHOOT — HANNA JAMES
+═══════════════════════════════════════════ -->
+    <section class="vishu-sec" id="vishu-shoot">
+
+        <!-- Header -->
+        <div class="vishu-header rv">
+            <div>
+                <p class="vishu-eyebrow">Festive Photoshoot · Kerala · 2025</p>
+                <h2 class="vishu-title">Hanna — A <em>Vishu</em><br>to Remember</h2>
+            </div>
+            <span class="vishu-meta-pill rv d1">Model · Hanna James · Age 6</span>
+        </div>
+
+        <!-- Hero layout: main tall image + side column -->
+        <div class="vishu-hero rv d1">
+            <div class="vishu-hero-img"
+                 data-src="photos/vishu shoot/FV_hanna_1.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Vishu Morning I"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_1.png" alt="Hanna James Vishu photoshoot" loading="lazy">
+                <div class="vh-overlay"></div>
+            </div>
+
+            <div class="vishu-hero-side">
+                <!-- Model info card -->
+                <div class="vishu-model-card rv d2">
+                    <p class="vmc-label">Model</p>
+                    <h3 class="vmc-name"><em>Hanna</em> James</h3>
+                    <div class="vmc-detail">
+                        <b>Age</b> 6 years &nbsp;·&nbsp; <b>Festival</b> Vishu 2025<br>
+                        <b>Photographer</b> @yung.krshn<br>
+                        <b>Style</b> Traditional Kerala Silk Pavada<br><br>
+                        The golden morning of Vishu — captured through the pure, unscripted joy of a child experiencing the Vishukkani for the first time. Every frame is a quiet celebration of innocence and tradition.
+                    </div>
+                </div>
+
+                <!-- Second feature image -->
+                <div class="vishu-side-img rv d3"
+                     data-src="photos/vishu shoot/FV_hanna_6.png"
+                     data-cat="vishu"
+                     data-title="Hanna — Golden Light III"
+                     tabindex="0">
+                    <img src="photos/vishu shoot/FV_hanna_6.png" alt="Hanna Vishu golden light" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative divider -->
+        <div class="vishu-divider">
+            <span class="vishu-divider-icon">✦ ✦ ✦</span>
+        </div>
+
+        <!-- Full grid of remaining 8 shots -->
+        <div class="vishu-grid rv d2">
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_3.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Kanni Konna II"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_3.png" alt="Hanna Vishu kanna" loading="lazy">
+                <div class="vt-glass"><span>Kanni Konna II</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_10.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Vishukkani IV"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_10.png" alt="Hanna Vishukkani" loading="lazy">
+                <div class="vt-glass"><span>Vishukkani IV</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_11.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Silk & Blossoms V"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_11.png" alt="Hanna silk blossoms" loading="lazy">
+                <div class="vt-glass"><span>Silk & Blossoms V</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_13.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Portrait VI"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_13.png" alt="Hanna portrait" loading="lazy">
+                <div class="vt-glass"><span>Portrait VI</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_15.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Festival Joy VII"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_15.png" alt="Hanna festival joy" loading="lazy">
+                <div class="vt-glass"><span>Festival Joy VII</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_18.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Traditional VIII"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_18.png" alt="Hanna traditional" loading="lazy">
+                <div class="vt-glass"><span>Traditional VIII</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_19.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Golden IX"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_19.png" alt="Hanna golden" loading="lazy">
+                <div class="vt-glass"><span>Golden IX</span></div>
+            </div>
+            <div class="vishu-thumb"
+                 data-src="photos/vishu shoot/FV_hanna_23.png"
+                 data-cat="vishu"
+                 data-title="Hanna — Vishu Spirit X"
+                 tabindex="0">
+                <img src="photos/vishu shoot/FV_hanna_23.png" alt="Hanna Vishu spirit" loading="lazy">
+                <div class="vt-glass"><span>Vishu Spirit X</span></div>
+            </div>
+        </div>
+
     </section>
 
     <!-- ═══════════════════════════════════════════
@@ -3659,6 +4124,18 @@
                 const idx = allItems.indexOf(el);
                 if (idx > -1) openLb(idx);
             });
+        });
+
+        /* Vishu section — hero, side-img, and thumbs open lightbox */
+        document.querySelectorAll('.vishu-hero-img[data-src], .vishu-side-img[data-src], .vishu-thumb[data-src]').forEach(el => {
+            el.addEventListener('click', () => {
+                lbImg.src = el.dataset.src || '';
+                lbCat.textContent = el.dataset.cat || 'Vishu Shoot';
+                lbTitle.textContent = el.dataset.title || '';
+                lb.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+            el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') el.click(); });
         });
 
         lbClose.addEventListener('click', closeLb);
